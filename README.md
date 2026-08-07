@@ -44,10 +44,10 @@ Camada semântica / Dashboard de BI
 
 | Camada | Tecnologia |
 |---|---|
-| Extração e transformação | Python (pandas, SQLAlchemy) |
+| Extração e transformação | Python (pandas, SQL) |
 | Conexão com origem | SQL Server (via pyodbc) |
 | Data Warehouse | PostgreSQL |
-| Orquestração | Execução diária agendada (cron / Task Scheduler / Airflow) |
+| Orquestração | Execução diária agendada |
 | Visualização | Power BI (fora do escopo deste repositório) |
 
 ## 5. Fluxo de Dados
