@@ -118,8 +118,9 @@ O painel foi estruturado em módulos interativos para atender aos times de Risco
 
 ## 9. Galeria do Projeto
 
-<!-- Suba a imagem principal do painel em assets/screenshots/dashboard_preview.png e referencie abaixo -->
-<!-- ![Preview do Dashboard](assets/screenshots/dashboard_preview.png) -->
+![Preview do Dashboard](assets/screenshots/credito_a.jpeg)
+
+🔗 **[Acessar demonstração interativa no Portfólio](SEU_LINK_AQUI)**
 
 ## 10. Como Executar
 
