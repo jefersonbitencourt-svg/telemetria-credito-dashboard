@@ -120,7 +120,7 @@ O painel foi estruturado em módulos interativos para atender aos times de Risco
 
 ![Preview do Dashboard](assets/screenshots/credito_a.jpeg)
 
-🔗 **[Acessar demonstração interativa no Portfólio](SEU_LINK_AQUI)**
+🔗 **[Acessar demonstração interativa no Portfólio](https://jefersonbitencourt-svg.github.io/portifolio-data-analyst/#projeto/telemetria-credito)**
 
 ## 10. Como Executar
 
