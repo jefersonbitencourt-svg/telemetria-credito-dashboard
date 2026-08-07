@@ -148,7 +148,7 @@ pip install pandas sqlalchemy psycopg2-binary pyodbc python-dotenv
 ### Execução
 
 ```bash
-python pipeline_originacao_credito.py
+python pipeline_telemetria_credito.py
 ```
 
 ## 11. Impacto e Resultados
