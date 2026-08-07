@@ -64,12 +64,12 @@ Camada semântica / Dashboard de BI
      (menos de 1 S.M. até mais de 5 S.M.).
 4. **Carga na staging** — remove o período já carregado e insere os
    registros atualizados (padrão *delete + insert* para permitir
-   reprocessamento idempotente).
+   reprocessamento).
 5. **Atualização da tabela analítica** — reagrega os dados da staging por
    todas as dimensões relevantes, gerando a contagem de propostas por
    combinação de atributos, que alimenta o dashboard final.
 
-## 6. Dicionário de Dados (fictício)
+## 6. Dicionário de Dados (fictício/adaptado)
 
 ### `originacao.proposta_credito` (origem)
 | Coluna | Descrição |
