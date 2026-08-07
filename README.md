@@ -48,7 +48,7 @@ Camada semântica / Dashboard de BI
 | Conexão com origem | SQL Server (via pyodbc) |
 | Data Warehouse | PostgreSQL |
 | Orquestração | Execução diária agendada |
-| Visualização | Power BI (fora do escopo deste repositório) |
+| Visualização | Power BI |
 
 ## 5. Fluxo de Dados
 
