@@ -1,43 +1,39 @@
 # Documentação Técnica — Pipeline de Telemetria e Análise de Risco na Esteira de Crédito
 
-> Projeto de portfólio. Dados, nomes de tabelas, colunas e parceiros são **fictícios/adaptados**.
+> **Projeto de Portfólio:** Desenvolvido com base em um contexto corporativo real. Dados, nomes de tabelas, colunas, parceiros e métricas sensíveis foram **fictícios/adaptados** para garantir a confidencialidade e segurança das informações.
 
 ## 1. Visão Geral
 
-Pipeline de ETL em Python responsável por extrair diariamente as propostas
-de crédito (cartão co-branded / private label) de um sistema transacional
-de origem, aplicar regras de classificação socioeconômica e consolidar os
-dados em um Data Warehouse PostgreSQL, servindo de base para um dashboard
-de BI de acompanhamento da esteira de crédito.
+Centralização e análise end-to-end da esteira de originação de crédito (cartão co-branded / private label). 
+O projeto abrange desde a ingestão diária via pipeline Python/SQL até o consumo por um modelo semântico no Power BI, dando visibilidade total sobre a taxa de conversão das propostas, eficácia das políticas do motor de decisão e exposição financeira por perfil socioeconômico.
 
-## 2. Problema de Negócio
+## 2. O desafio do Negócio
 
-A originação de crédito recebe propostas vindas de múltiplos canais
-(autoatendimento, balcão de lojas, promotoras de venda). As etapas de
-análise — pré-aprovação automática, mesa de crédito, checagem de fraude e
-consulta a bureaus externos — ficam espalhadas em sistemas diferentes,
-dificultando a visibilidade sobre gargalos, motivos de recusa e exposição
-financeira gerada pelos limites concedidos.
+A operação de crédito recebia propostas vindas de múltiplos canais (*autoatendimento, balcão de lojas, promotoras de venda*). 
+As etapas de análise — *pré-aprovação automática, mesa de crédito, checagem de fraude e consulta a bureaus externos* — ficavam espalhadas em sistemas diferentes.
+
+### Principais Dores:
+
+* **Esteira Fragmentada:** Ausência de uma visão unificada do funil de conversão.
+* **Motivos de Recusa Não Padronizados:** Centenas de *strings* de recusa divergentes retornadas pelo motor de decisão sem agrupamento de negócio.
+* **Exposição de Risco Sem Visibilidade:** Falta de acompanhamento consolidado do limite médio concedido por perfil socioeconômico.
 
 ## 3. Arquitetura
 
 ```
-Sistema Transacional de Origem (SQL Server)
+Sistema do Emissor (SQL Server)
         │
-        ▼
-Extração incremental (Python / pandas)
+        ▼ (Extração Incremental)
+Pipeline Python / SQL (ETL, Sanitização e Regras de Negócio)
         │
-        ▼
-Classificação (classe profissional / faixa de renda)
+        ▼ (Carga Idempotente - Delete + Insert)
+Data Warehouse PostgreSQL (Staging e Analytics)
         │
-        ▼
-Staging — PostgreSQL (staging.fato_propostas_credito)
+        ▼ (Conexão via Gateway On-Premises)
+Power BI Dataflow (Fluxo de Dados)
         │
-        ▼
-Tabela Analítica Diária — PostgreSQL (analytics.fato_propostas_credito_diario)
-        │
-        ▼
-Camada semântica / Dashboard de BI
+        ▼ (Modelo Semântico & Medidas DAX)
+Dashboard de Telemetria (Power BI Service)
 ```
 
 ## 4. Tecnologias
@@ -47,8 +43,10 @@ Camada semântica / Dashboard de BI
 | Extração e transformação | Python (pandas, SQL) |
 | Conexão com origem | SQL Server (via pyodbc) |
 | Data Warehouse | PostgreSQL |
-| Orquestração | Execução diária agendada |
+| Orquestração | Execução diária via Script .bat + Agendador de Tarefas do Windows (Task Scheduler) |
 | Visualização | Power BI |
+| Camada Semântica & Ingestão BI | Power BI Dataflow (Fluxo de Dados) via On-Premises Data Gateway |
+| Modelagem & Métricas | Power BI Desktop (DAX) |
 
 ## 5. Fluxo de Dados
 
