@@ -1,4 +1,4 @@
-# 📊 Pipeline ETL & Dashboard de Telemetria de Originação de Crédito
+# Documentação Técnica - Pipeline ETL & Telemetria e Análise de Risco na Esteira de Crédito
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue?logo=python)
 ![PostgreSQL](https://img.shields.io/badge/PostgreSQL-Data_Warehouse-blue?logo=postgresql)
