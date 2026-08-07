@@ -75,7 +75,7 @@ A automação foi desenhada para garantir a saúde dos dados e resiliência no p
 1. **Agendador de Tarefas do Windows** aciona periodicamente (ex: a cada 1 hora) o script `executar_pipeline.bat`.
 2. **Verificação de saúde (`.bat`)** — o script checa se o log de sucesso do dia já foi gerado:
    - Se o log existe, entende que a carga da janela já ocorreu e encerra a execução.
-   - Se o log não existe, executa `pipeline_originacao_credito.py`.
+   - Se o log não existe, executa `pipeline_telemetria_credito.py`.
 3. **Execução Python** — realiza a extração incremental do período, aplica as regras de classificação de perfil socioeconômico e executa o *Delete + Insert* nas tabelas `staging` e `analytics` do PostgreSQL. Ao finalizar sem erros, gera o arquivo de log de sucesso.
 4. **Atualização no Power BI Service** — configurada via Data Gateway para ler a tabela analítica do PostgreSQL de forma agendada a cada 1 hora, refletindo os dados mais recentes nos painéis sem necessidade de intervenção manual.
 
