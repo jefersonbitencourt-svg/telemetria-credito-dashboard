@@ -1,6 +1,6 @@
-# Documentação Técnica — Pipeline de Telemetria de Originação de Crédito
+# Documentação Técnica — Pipeline de Telemetria e Análise de Risco na Esteira de Crédito
 
-> Projeto de portfólio. Dados, nomes de tabelas, colunas e parceiros são **fictícios**.
+> Projeto de portfólio. Dados, nomes de tabelas, colunas e parceiros são **fictícios/adaptados**.
 
 ## 1. Visão Geral
 
